@@ -162,6 +162,14 @@ module.exports = {
   },
   "module": {
     "rules": [
+      // Source map loader support for *.js files
+      // Extracts SourceMaps for source files that as added as sourceMappingURL comment.
+      // reference: https://github.com/webpack/source-map-loader
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        use: ["source-map-loader"]
+      },
       {
         "test": /\.html$/,
         "loader": "raw-loader"
